@@ -35,7 +35,7 @@
                 round
                 dense
                 icon="edit"
-                class="text-dark-500"
+                class="text-slate-900"
                 @click="openEdit(props.row)"
               />
               <q-btn

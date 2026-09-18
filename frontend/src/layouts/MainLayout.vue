@@ -3,7 +3,7 @@
     <MainHeader @toggle-drawer="toggleDrawer" />
     
     <q-drawer
-      class="bg-slate-100 dark:bg-gray-950 px-5 py-5 pr-5 pl-5 max-w-2xl"
+      class="bg-slate-100 dark:bg-gray-950 px-5 py-5 pr-0 pl-0 max-w-2xl"
       style="scrollbar-width: none;"
       v-model="leftDrawerOpen"
       :mini="miniState"
@@ -14,13 +14,13 @@
      <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleDrawer" />
     
       <q-list>
-        <div class="flex items-center justify-between px-2">
+        <picture class="flex items-center justify-between px-2">
           <q-img
             alt="logo-nonay"
             src="@/assets/images/Nonay-logo.svg"
             style="max-width: 200px;"
           />
-        </div>
+        </picture>
 
         <EssentialLink
           class="text-gray-950 dark:text-white"

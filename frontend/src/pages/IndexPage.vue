@@ -22,7 +22,7 @@
         :key="learning.id"
         @click="goToDetail(learning.id)"
         noCaps
-        class="min-w-2xl max-w-2xl h-28 m-2 bg-blue-300 hover:bg-blue-200 rounded-md shadow-md"
+        class="min-w-2xl max-w-2xl h-28 m-2 bg-slate-100 hover:bg-blue-100 rounded-md shadow-md"
       >
         <article>
           <p class="font-medium opacity-70 text-slate-900 text-base line-clamp-3">

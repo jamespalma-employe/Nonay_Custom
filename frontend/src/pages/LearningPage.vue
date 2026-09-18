@@ -1,5 +1,5 @@
 <template>
-  <main class="mx-auto max-w-7xl py-20 px-20">
+  <main class="mx-auto max-w-7xl py-7 px-6">
     <h1>{{ $t('learning.allSolutions') }}</h1>
 
     <q-tabs v-model="activeTab" dense align="left" class="mb-4">
@@ -28,21 +28,11 @@
             </div>
             <p class="text-body2">{{ props.row.description }}</p>
             <div class="flex justify-between text-caption text-slate-500 mt-10">
-              <span class="text-teal-900 dark:text-blue-500"
-                >{{ $t('solutions.category') }}
-                <span class="text-gray-400 dark:text-white">{{ props.row.category }}</span></span
-              >
-              <div class="justify-end text-orange-500 dark:text-blue-500">
-                <span class="mr-10"
-                  >{{ $t('solutions.createdAt') }}
-                  <span class="text-gray-900 dark:text-white">{{ props.row.createdAt }}</span></span
-                >
-                <span
-                  >{{ $t('home.authors') }}
-                  <span class="text-gray-900 dark:text-white">{{
-                    getAuthorName(props.row.authorId)
-                  }}</span></span
-                >
+              <span class="bg-blue-500 text-white rounded-md p-1"> #{{ props.row.category }} </span>
+
+              <div class="justify-end text-slate-900">
+                <span class="mr-6">{{ getAuthorName(props.row.authorId) }}</span>
+                <span>{{ props.row.createdAt }}</span>
               </div>
             </div>
           </article>
