@@ -22,12 +22,12 @@
       <template #item="props">
         <q-card
         flat
-          class="card mb-4 p-4 rounded-md border-y-2 dark:border dark:shadow-none"
+          class="w-full card mb-4 p-4 border-y-2 shadow-none"
         >
           <section class="flex flex-nowrap justify-between items-start">
-            <h2 @click="goToDetail(props.row.id)" style="max-width: 990px" class=" text-blue-500 dark:text-blue-500 break-all cursor-pointer">
+            <router-link :to="`/learning/${props.row.id}`" style="max-width: 990px" class="post-title-link">
               {{ props.row.title }}
-            </h2>
+            </router-link>
             <q-separator />
             <div @click.stop>
               <q-btn
@@ -35,7 +35,7 @@
                 round
                 dense
                 icon="edit"
-                class="text-slate-900"
+                class="text-slate-900 dark:text-slate-50"
                 @click="openEdit(props.row)"
               />
               <q-btn
@@ -43,7 +43,7 @@
                 round
                 dense
                 icon="delete"
-                class="text-red-500 dark:text-white"
+                class="text-red-500"
                 @click="askDelete(props.row.id)"
               />
             </div>
@@ -147,7 +147,6 @@ import type { Learning, LearningCreate } from '@/types/Learning';
 import type { User } from '@/types/User';
 import type { QTableColumn } from 'quasar';
 import { onMounted, reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
 import { getUser } from '@/services/auth/AuthService';
 import { getUsers } from '@/services/auth/UsersService';
 import { useLearningStore } from '@/stores/learning-store';
@@ -157,7 +156,6 @@ import { getLearning } from '@/services/LearningService';
 
 const dialogOpen = ref(false);
 const learningStore = useLearningStore();
-const router = useRouter();
 const users = ref<User[]>([]);
 
 const isEditing = ref(false);
@@ -167,9 +165,6 @@ const deletingId = ref<string | null>(null);
 const editingId = ref<string | null>();
 const { locale } = useI18n();
 
-async function goToDetail(id: string) {
-  await router.push(`/learning/${id}`);
-}
 
 const form = reactive<LearningCreate>({
   title: '',

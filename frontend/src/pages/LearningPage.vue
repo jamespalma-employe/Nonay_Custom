@@ -19,18 +19,17 @@
     >
       <template #item="props">
         <q-card
-          class="w-full mb-4 p-4 cursor-pointer border-y-2 shadow-none"
-          @click="goToDetail(props.row.id)"
+          class="w-full card mb-4 p-4 border-y-2 shadow-none"
         >
           <article>
-            <div class="flex justify-between items-start">
-              <span class="text-blue-500 font-medium text-xl break-all">{{ props.row.title }}</span>
-            </div>
+            <router-link :to="`/learning/${props.row.id}`" class="flex justify-between items-start">
+              <span class="post-title-link">{{ props.row.title }}</span>
+            </router-link>
             <p class="text-body2">{{ props.row.description }}</p>
             <div class="flex justify-between text-caption text-slate-500 mt-10">
-              <span class="bg-blue-500 text-white rounded-md p-1"> #{{ props.row.category }} </span>
+              <span class="tag text-white p-1"> #{{ props.row.category }} </span>
 
-              <div class="justify-end text-slate-900">
+              <div class="justify-end text-slate-950 dark:text-slate-300">
                 <span class="mr-6">{{ getAuthorName(props.row.authorId) }}</span>
                 <span>{{ props.row.createdAt }}</span>
               </div>
@@ -49,12 +48,11 @@ import type { Learning } from '@/types/Learning';
 import type { User } from '@/types/User';
 import type { QTableColumn } from 'quasar';
 import { computed, onMounted, ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 const loading = ref(false);
 const learningStore = useLearningStore();
 const route = useRoute();
-const router = useRouter();
 const rows = ref<Learning[]>([]);
 const users = ref<User[]>([]);
 const activeTab = ref('all');
@@ -89,9 +87,6 @@ watch(
 
 const columns: QTableColumn[] = [{ name: 'title', label: 'Title', field: 'title', align: 'left' }];
 
-async function goToDetail(id: number) {
-  await router.push(`/learning/${id}`);
-}
 
 function getAuthorName(authorId: string): string {
   return users.value.find((u) => u.id === authorId)?.name ?? 'Unknown';

@@ -3,14 +3,17 @@
     --secondary:  #26a69a;
     --accent: #9c27b0;
     --dark: #1d1d1d;
-    --dark-page:  #121212;
     --positive: #21ba45 ;
     --negative:  #c10015;
     --info: #31ccec;
     --warning: #f2c037;
-    --background-color: #fafafa;
-    --card: #edf3f8;
-    --color-p: #121213a9;
+    --app-background: #fafafa;
+    --app-card: #fff;
+    --app-card-dashboard: #edf3f8;
+    --app-code: #160000;
+    --app-text: #1d1d1d;
+    --app-description: #000000a9;
+    --app-btn-dashboard: #004763;
 }
 
 $primary: var(--primary);
@@ -22,7 +25,10 @@ $positive: var(--positive);
 $negative: var(--negative);
 $info: var(--info);
 $warning: var(--warning);
-$background: var(--background-color);
-$card: var(--card);
-$color-p: var(--p-color);
-$background-color: var(--background);
+$background: var(--app-background);
+$card: var(--app-card);
+$card-dashboard: var(--app-card-dashboard);
+$text: var(--app-text);
+$description: var(--app-description);
+$button-dashboard: var(--app-btn-dashboard);
+$code: var(--app-code);

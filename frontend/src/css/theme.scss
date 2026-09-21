@@ -1,3 +1,27 @@
 body.body--dark {
-  --background: #fff;
+  --app-background: #121212;
+  --app-card: #292929;
+  --app-card-dashboard: #292929;
+  --app-text: #fff;
+  --app-description: #b9b9b9;
+  --app-btn-dashboard: #003350;
+  --app-code: #1f1f1a;
+}
+
+body {
+  background-color: var(--app-background) !important;
+  color: var(--app-text);
+
+  h1 {
+    font-weight: bold;
+    font-size: 24px; 
+    color: var(--app-text);
+  }
+
+    h2 {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--app-text);
+  }
+
 }

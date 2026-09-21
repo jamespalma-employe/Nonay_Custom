@@ -1,27 +1,35 @@
 <template>
-  <q-layout view="lHh Lpr lff" >
+  <q-layout view="lHh Lpr lff">
     <MainHeader @toggle-drawer="toggleDrawer" />
+
     
+
     <q-drawer
-      class="bg-slate-100 dark:bg-gray-950 px-5 py-5 pr-0 pl-0 max-w-2xl"
-      style="scrollbar-width: none;"
+      style="scrollbar-width: none"
       v-model="leftDrawerOpen"
       :mini="miniState"
       show-if-above
       bordered
     >
+      <q-btn v-if="miniState" flat dense round icon="menu" aria-label="Menu" @click="toggleDrawer" />
+      <q-btn v-else flat dense round icon="menu" aria-label="Menu" @click="toggleDrawer" />
 
-     <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleDrawer" />
-    
       <q-list>
-        <picture class="flex items-center justify-between px-2">
+        <div class="flex justify-center px-2">
           <q-img
+          v-if="!miniState"
             alt="logo-nonay"
             src="@/assets/images/Nonay-logo.svg"
-            style="max-width: 200px;"
+            style="max-width: 200px; min-width: 125px"
           />
-        </picture>
-
+           <q-img
+           v-else
+            alt="logo-nonay"
+            src="@/assets/images/Nonay-simbol.svg"
+            style="max-width: auto; min-width: auto"
+          />
+        </div>
+        
         <EssentialLink
           class="text-gray-950 dark:text-white"
           v-for="link in linksList"
@@ -34,7 +42,6 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-
   </q-layout>
 </template>
 
@@ -44,11 +51,9 @@ import EssentialLink, { type EssentialLinkProps } from '@/components/EssentialLi
 import { useQuasar } from 'quasar';
 import MainHeader from './components/MainHeader.vue';
 
-
 const miniState = ref(true);
 const leftDrawerOpen = ref(false);
 const $q = useQuasar();
-
 
 function toggleDrawer() {
   if ($q.screen.gt.xs) {

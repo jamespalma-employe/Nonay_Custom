@@ -5,8 +5,7 @@
     v-ripple
     :to="link"
     exact
-    active-class="text-orange-500 dark:bg-gray-950"
-    class="hover:bg-gray-100 dark:hover:bg-gray-800"
+    active-class="text-orange-500 dark:text-orange-500"
   >
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />

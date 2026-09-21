@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 export default {
- darkMode: ['class', '.body--dark'],
+  darkMode: ['class', '.body--dark'],
   content: ['./public/**/*.html', './src/**/*.{vue, js, ts, jsx, tsx}'],
   theme: {
     screens: {
@@ -17,21 +17,19 @@ export default {
         secondary: 'var(--secondary)',
         accent: 'var(--accent)',
         dark: 'var(--dark)',
-        'dark-page': 'var(--dark-page)',
         positive: 'var(--positive)',
         negative: 'var(--negative)',
         info: 'var(--info)',
         warning: 'var(--warning)',
-        'background-color': 'var(--background-color)',
-        background: {
-          DEFAULT: 'var(--background)',
-          secondary: 'var(--background-secondary)'
-        },
-        card: 'var(--card)',
-        'color-p': 'var(--color-p)'
+        background: 'var(--app-background)',
+        card: 'var(--app-card)',
+        'card-dashboard': 'var(--app-card-dashboard)',
+        'color-p': 'var(--app-color-p)',
+        description: 'var(--app-description)',
+        'button-dashboard': 'var(--app-btn-dashboard)',
+        code: 'var(--app-code)'
       },
     },
   },
   plugins: [],
 } satisfies Config;
-

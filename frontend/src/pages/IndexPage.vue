@@ -22,16 +22,14 @@
         :key="learning.id"
         @click="goToDetail(learning.id)"
         noCaps
-        class="min-w-2xl max-w-2xl h-28 m-2 bg-slate-100 hover:bg-blue-100 rounded-md shadow-md"
+        class="btn-dashboard rounded-md shadow-md"
       >
-        <article>
-          <p class="font-medium opacity-70 text-slate-900 text-base line-clamp-3">
-            {{ learning.title }}
-          </p>
-          <span class="text-caption text-slate-500">
-            {{ $t('solutions.createdAt') }}: {{ learning.createdAt }}
-          </span>
-        </article>
+        <h3  class="font-medium text-base line-clamp-3">
+          {{ learning.title }}
+        </h3>
+        <span class="text-caption opacity-65">
+          {{ $t('solutions.createdAt') }}: {{ learning.createdAt }}
+        </span>
       </q-btn>
     </div>
   </main>

@@ -1,21 +1,24 @@
 <template>
-  <main class="flex min-h-dvh items-center justify-center">
-    <q-card style="width: 380px">
-      <q-card-section
-        class="bg-gradient-to-t border-l-white rounded-md from-cyan-800 via-cyan-900 via-50% to-cyan-950"
-      >
-        <q-img
+  <main class="flex min-h-dvh bg-orange-400 items-center justify-center">
+    <q-card style="width: 400px">
+      <q-card-section class="card rounded-lg shadow h-auto p-6 bg-white relative overflow-hidden">
+        <section class="justify-center">
+          <q-img
           alt="nonay-logo-branca"
-          src="@/assets/images/Nonay-logo-branca.svg"
+          src="@/assets/images/Nonay-secondary.svg"
           style="max-width: 150px; min-width: none"
           class="m-3 ml-5"
         />
-        <q-form class="p-3" @submit="handleLogin">
-          <q-input color="white" v-model="email" label="Email" type="email" dark />
-          <q-input color="white" v-model="password" label="Password" type="password" dark />
+        </section>
+        <section class="flex items-center">
+          <q-form class="w-full mt-4 space-y-3" @submit="handleLogin">
+          <q-input dense borderless stack-label   class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-blue-300" v-model="email" label="Email" type="email" />
+          <q-input dense borderless stack-label  class="outline-none border-2 rounded-md px-2 py-1 text-slate-500 w-full focus:border-blue-300" v-model="password" label="Password" type="password"/>
 
-          <q-btn class="bg-slate-50 mt-5" type="submit">Sign in</q-btn>
+          <q-btn class="btn w-full mt-5" type="submit">Sign in</q-btn>
         </q-form>
+        </section>
+        
       </q-card-section>
     </q-card>
   </main>

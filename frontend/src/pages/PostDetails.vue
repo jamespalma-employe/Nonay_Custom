@@ -2,7 +2,7 @@
   <main class="mx-auto max-w-7xl py-20 px-20">
     <h1>Solution Details</h1>
 
-    <q-card class="p-6 dark:bg-gray-800 border-y-2 shadow-none q-mt-md" v-if="learning">
+    <q-card class="p-6 card border-y-2 shadow-none q-mt-md" v-if="learning">
       <div class="flex flex-nowrap justify-end">
       <q-btn flat rounded icon="arrow_back" @click="router.back()" class="mb-2 pr-2 pl-2" />
       </div>
@@ -16,18 +16,18 @@
       </p>
 
       <span class="font-semibold text-md mt-5">{{ $t('solutions.exampleCodeError') }}</span>
-      <article class="bg-slate-900 text-white p-4 rounded font-mono text-sm overflow-x-auto flex">
+      <article class="card-code text-slate-50 p-4 rounded font-mono text-sm overflow-x-auto flex">
         <pre style="word-break: break-word; white-space: pre-wrap">
         <code v-html="highlightedCodeSol"></code></pre>
       </article>
       <br />
       <span class="font-semibold text-md">{{ $t('solutions.exampleCodeCorrect') }}</span>
-      <article class="bg-slate-900 text-white p-4 rounded font-mono text-sm overflow-x-auto flex">
+      <article class="card-code text-slate-50 p-4 rounded font-mono text-sm overflow-x-auto mb-2">
         <pre style="word-break: break-word; white-space: pre-wrap">
         <code v-html="highlightedCode"></code>
       </pre>
       </article>
-      <span class="text-caption text-grey mt-4 mb-1">{{ learning.category }}:</span>
+      <span class="tag text-white">#{{ learning.category }}</span>
       <div v-if="needsTranslation" class="flex justify-between mb-10">
         <div v-if="needsTranslation"></div>
         <q-btn
@@ -53,7 +53,7 @@
         class="flex-grow"
       >
         <div class="content-end mb-2">
-          <q-btn type="submit" :label="$t('solutions.send')" color="primary" class="h-5" />
+          <q-btn flat round type="submit" icon="send" class="pr-1 pl-2"  />
         </div>
       </q-input>
     </q-form>
@@ -61,10 +61,10 @@
     <section
       v-for="comment in comments"
       :key="comment.id"
-      class="mt-5 p-3 border-y-2 dark:bg-gray-800 rounded-md"
+      class="mt-5 p-3 card-comment rounded-md"
     >
     <span class="text-caption text-grey">
-      <span class="text-sm font-bold text-slate-900">{{ getAuthorName(comment.authorId) }} </span> {{ comment.createdAt }}
+      <span class="text-sm font-bold text-slate-900 dark:text-slate-50">{{ getAuthorName(comment.authorId) }} </span> {{ comment.createdAt }}
     </span>
       <p class="text-body2">{{ comment.text }}</p>
     </section>

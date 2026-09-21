@@ -1,12 +1,14 @@
 <template>
-  <q-header flat class="bg-cyan-900 dark:bg-cyan-800 py-1">
+  <q-header flat class="bg-cyan-900 dark:bg-cyan-800 py-1" >
     <q-toolbar class="max-w-full">
+
+  
       <section class="flex flex-grow justify-center">
         <q-input
           v-model="searchProb"
           dense
           outlined
-          class="min-w-96 rounded-md max-w-3xl bg-slate-50 dark:bg-gray-950 dark:border-none"
+          class="min-w-96 rounded-md max-w-3xl card dark:border-none"
           placeholder="Search..."
           @keyup.enter="handleSearch"
         >
@@ -82,6 +84,7 @@ const router = useRouter();
 const searchProb = ref('');
 const $q = useQuasar();
 const { locale } = useI18n();
+
 
 function toggleDarkMode() {
   $q.dark.toggle();
