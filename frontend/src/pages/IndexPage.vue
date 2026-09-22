@@ -1,6 +1,6 @@
 <template>
   <main class="mx-auto max-w-7xl py-7 px-6">
-    <h1>{{ $t('home.dashboard') }}</h1>
+    <h1 class="text-xl m-2">{{ $t('home.dashboard') }}</h1>
 
     <article class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
       <q-card
@@ -14,39 +14,33 @@
       </q-card>
     </article>
 
-    <h2>{{ $t('home.latestLearnings') }}</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 py-4">
-      <q-btn
+    <h2 class="text-lg m-2">{{ $t('home.latestLearnings') }}</h2>
+    <article class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
+      <card
         flat
         v-for="learning in recentLearnings"
         :key="learning.id"
-        @click="goToDetail(learning.id)"
         noCaps
         class="btn-dashboard rounded-md shadow-md"
       >
-        <h3  class="font-medium text-base line-clamp-3">
-          {{ learning.title }}
-        </h3>
+        <router-link :to="`/learning/${learning.id}`" class="flex justify-between items-start">
+          <span class="post-title-link line-clamp-3">{{ learning.title }}</span>
+        </router-link>
         <span class="text-caption opacity-65">
           {{ $t('solutions.createdAt') }}: {{ learning.createdAt }}
         </span>
-      </q-btn>
-    </div>
+      </card>
+    </article>
   </main>
 </template>
 
 <script setup lang="ts">
 import { useLearningStore } from '@/stores/learning-store';
 import { computed, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
 
-const router = useRouter();
 
 const learningStore = useLearningStore();
 
-async function goToDetail(id: string) {
-  await router.push(`/learning/${id}`);
-}
 
 const stats = computed(() => [
   {

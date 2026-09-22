@@ -1,13 +1,13 @@
 <template>
-  <main class="mx-auto max-w-7xl py-20 px-20">
-    <h1>Solution Details</h1>
+  <main class="mx-auto max-w-7xl py-7 px-6">
+    <h1 class="text-xl m-2">Solution Details</h1>
 
     <q-card class="p-6 card border-y-2 shadow-none q-mt-md" v-if="learning">
       <div class="flex flex-nowrap justify-end">
       <q-btn flat rounded icon="arrow_back" @click="router.back()" class="mb-2 pr-2 pl-2" />
       </div>
 
-      <h2 class="text-2xl text-teal-900 dark:text-blue-500 font-semibold mb-2">
+      <h2 class="text-2xl text-blue-600 font-semibold mb-2">
         {{ learning.title }}
       </h2>
 
@@ -27,7 +27,11 @@
         <code v-html="highlightedCode"></code>
       </pre>
       </article>
-      <span class="tag text-white">#{{ learning.category }}</span>
+      <div class="flex flex-wrap justify-start gap-1 m-3">
+        <q-chip v-for="category in learning.category" :key="category" dense class="tag">
+          {{  category }}
+        </q-chip>
+      </div>
       <div v-if="needsTranslation" class="flex justify-between mb-10">
         <div v-if="needsTranslation"></div>
         <q-btn
@@ -66,7 +70,7 @@
     <span class="text-caption text-grey">
       <span class="text-sm font-bold text-slate-900 dark:text-slate-50">{{ getAuthorName(comment.authorId) }} </span> {{ comment.createdAt }}
     </span>
-      <p class="text-body2">{{ comment.text }}</p>
+      <p  class="text-sm break-words">{{ comment.text }}</p>
     </section>
 
     <q-dialog v-model="dialogOpen">

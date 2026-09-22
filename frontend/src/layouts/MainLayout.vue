@@ -8,14 +8,16 @@
       style="scrollbar-width: none"
       v-model="leftDrawerOpen"
       :mini="miniState"
-      show-if-above
       bordered
     >
-      <q-btn v-if="miniState" flat dense round icon="menu" aria-label="Menu" @click="toggleDrawer" />
-      <q-btn v-else flat dense round icon="menu" aria-label="Menu" @click="toggleDrawer" />
+    <div v-if="$q.screen.gt.sm" :class="miniState ? 'flex justify-center p-1' : 'flex justify-end p-1'">
+        <q-btn flat dense :icon="miniState ? 'menu' : 'chevron_left'" @click="toggleMini"/>
+    </div>
+
+
 
       <q-list>
-        <div class="flex justify-center px-2">
+        <div class="px-2">
           <q-img
           v-if="!miniState"
             alt="logo-nonay"
@@ -24,9 +26,9 @@
           />
            <q-img
            v-else
-            alt="logo-nonay"
+            alt="logo-nonay-simbol"
             src="@/assets/images/Nonay-simbol.svg"
-            style="max-width: auto; min-width: auto"
+            style="max-width: 100px; min-width: auto"
           />
         </div>
         
@@ -51,16 +53,16 @@ import EssentialLink, { type EssentialLinkProps } from '@/components/EssentialLi
 import { useQuasar } from 'quasar';
 import MainHeader from './components/MainHeader.vue';
 
-const miniState = ref(true);
-const leftDrawerOpen = ref(false);
 const $q = useQuasar();
+const miniState = ref(true);
+const leftDrawerOpen = ref($q.screen.gt.xs);
+
+function toggleMini() {
+    miniState.value = !miniState.value;
+}
 
 function toggleDrawer() {
-  if ($q.screen.gt.xs) {
-    miniState.value = !miniState.value;
-  } else {
     leftDrawerOpen.value = !leftDrawerOpen.value;
-  }
 }
 
 const linksList: EssentialLinkProps[] = [

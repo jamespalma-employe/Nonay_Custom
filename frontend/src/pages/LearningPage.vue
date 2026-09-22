@@ -1,6 +1,6 @@
 <template>
   <main class="mx-auto max-w-7xl py-7 px-6">
-    <h1>{{ $t('learning.allSolutions') }}</h1>
+    <h1 class="text-xl m-2">{{ $t('learning.allSolutions') }}</h1>
 
     <q-tabs v-model="activeTab" dense align="left" class="mb-4">
       <q-tab name="all" :label="$t('learning.all')" />
@@ -27,7 +27,12 @@
             </router-link>
             <p class="text-body2">{{ props.row.description }}</p>
             <div class="flex justify-between text-caption text-slate-500 mt-10">
-              <span class="tag text-white p-1"> #{{ props.row.category }} </span>
+              
+              <div class="flex flex-wrap gap-1 mt-2">
+                <q-chip v-for="category in props.row.category" :key="category" dense  class="tag break-words">
+                  {{ category }}
+                </q-chip>
+              </div>
 
               <div class="justify-end text-slate-950 dark:text-slate-300">
                 <span class="mr-6">{{ getAuthorName(props.row.authorId) }}</span>

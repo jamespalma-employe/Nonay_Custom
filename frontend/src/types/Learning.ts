@@ -3,7 +3,7 @@ interface LearningBase {
   description: string,
   problem: string,
   solution: string,
-  category: string,
+  category: string[],
   authorId: string | null,
   locale: string
 }

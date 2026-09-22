@@ -1,7 +1,7 @@
 <template>
   <main class="mx-auto max-w-7xl py-7 px-6">
     <div class="flex justify-between items-center mb-3">
-      <h1>{{ $t('sidebar.mySolutions') }}</h1>
+      <h1 class="text-xl m-2">{{ $t('sidebar.mySolutions') }}</h1>
       <q-btn
         flat
         noCaps
@@ -29,7 +29,7 @@
               {{ props.row.title }}
             </router-link>
             <q-separator />
-            <div @click.stop>
+            <article @click.stop>
               <q-btn
                 flat
                 round
@@ -46,18 +46,23 @@
                 class="text-red-500"
                 @click="askDelete(props.row.id)"
               />
-            </div>
+            </article>
           </section>
           <p>{{ props.row.description }}</p>
           <article class="flex justify-between text-caption mt-10">
-            <span class="bg-blue-500 text-white rounded-md p-1"> #{{ props.row.category }} </span>
             
-            <div class="justify-end">
+            <article class="flex flex-wrap gap-1 mt-2">
+              <q-chip v-for="category in props.row.category" :key="category" dense class="tag">
+                {{  category }}
+              </q-chip>
+            </article>
+            
+            <article class="flex flex-nowrap justify-end">
               <span class="mr-6">{{
                 getAuthorName(props.row.authorId)
               }}</span>
               <span>{{ props.row.createdAt }}</span>
-            </div>
+            </article>
           </article>
         </q-card>
       </template>
@@ -67,49 +72,53 @@
       <q-card style="width: 800px">
         <q-card-section class="font-medium text-white bg-cyan-900">
           <div class="text-xl font-bold flex items-center gap-2">
-            <q-icon :name="isEditing ? 'edit' : 'add_circle'" />
-            {{ isEditing ? $t('solutions.editLearning') : $t('solutions.createLearning') }}
+            <q-icon :name="isEditing ? 'edit' : 'add'" />
+            {{ isEditing ? $t('solutions.editSolution') : $t('solutions.createSolution') }}
           </div>
         </q-card-section>
         <q-card-section class="p-6">
           <q-form class="q-gutter-md" @submit="handleSubmit">
+            <h2 class="text-lg">Title</h2>
             <q-input
               v-model="form.title"
               outlined
               autogrow
+              dense
               :rules="[(val) => !!val || $t('post.TitleRequired')]"
-              :label="$t('solutions.createLearning')"
+              :label="$t('solutions.createSolution')"
               type="textarea"
             />
+            <h2 class="text-lg">Description</h2>
             <q-input
               v-model="form.description"
               outlined
               autogrow
+              dense
               :rules="[(val) => !!val || $t('post.DescriptionRequired')]"
-              :label="$t('solutions.description')"
+              :label="$t('solutions.descriptionYourProblem')"
               type="textarea"
             />
             <q-separator />
             <textarea
               v-model="form.problem"
               rows="8"
-              :placeholder="$t('solutions.pasteYourCodeHere')"
+              :placeholder="$t('solutions.pasteYourCodeIncorrect')"
               class="w-full bg-gray-900 text-white font-mono text-sm p-4 rounded outline-none"
             ></textarea>
             <textarea
               v-model="form.solution"
               rows="8"
-              :placeholder="$t('solutions.pasteYourCodeHere')"
+              :placeholder="$t('solutions.pasteYourCodeCorrect')"
               class="w-full bg-gray-900 text-white font-mono text-sm p-4 rounded outline-none"
             ></textarea>
-            <q-input
-              v-model="form.category"
-              outlined
-              autogrow
-              :rules="[(val) => !!val || $t('post.CategoryRequired')]"
-              :label="$t('solutions.category')"
-              type="textarea"
-            />
+          
+            <h2 class="text-lg">Categorys</h2>
+
+            <q-input v-model="newCategory" :label="$t('solutions.addCategory')" dense outlined @keydown.enter.prevent="addTag" />
+
+            <q-chip v-for="(category, index) in form.category" :key="category" removable color="primary" text-color="white" @remove="form.category.splice(index, 1)" >
+              {{ category }}
+            </q-chip>
 
             <section class="flex gap-2">
               <q-btn flat :label="$t('solutions.cancel')" class="col" @click="handleCancel" />
@@ -157,6 +166,7 @@ import { getLearning } from '@/services/LearningService';
 const dialogOpen = ref(false);
 const learningStore = useLearningStore();
 const users = ref<User[]>([]);
+const newCategory = ref('');
 
 const isEditing = ref(false);
 const confirmDeleteOpen = ref(false);
@@ -171,7 +181,7 @@ const form = reactive<LearningCreate>({
   description: '',
   problem: '',
   solution: '',
-  category: '',
+  category: [] as string[],
   authorId: null,
   locale: '',
 });
@@ -201,7 +211,7 @@ function openCreate() {
   form.description = '';
   form.problem = '';
   form.solution = '';
-  form.category = '';
+  form.category = [] as string[];
   dialogOpen.value = true;
 }
 
@@ -215,6 +225,19 @@ function openEdit(learning: Learning) {
   form.category = learning.category;
   form.authorId = learning.authorId;
   dialogOpen.value = true;
+}
+
+function addTag() {
+  const value = newCategory.value.trim();
+  if(!value) return
+
+  const category = value.startsWith('#') ? value : `#${value}`
+
+  if(!form.category.includes(category)) {
+    form.category.push(category)
+  }
+
+  newCategory.value = ''
 }
 
 function handleCancel() {

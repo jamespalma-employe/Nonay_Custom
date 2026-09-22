@@ -15,165 +15,177 @@
   ],
   "learning": [
     {
-      "title": "O erro",
-      "description": "Bom dia, eu me chamo usuário",
-      "problem": "aaaaaaaaa",
-      "solution": "aaaaaaaa",
-      "category": "html",
-      "authorId": "2",
-      "createdAt": "01/09/2026",
-      "locale": "pt-BR",
-      "id": "IcZDpyTeb90"
-    },
-    {
-      "title": "This expression is not callable.\n  Type 'ComponentInternalInstance' has no call signatures.",
-      "description": "Ola! Sejam bem vindos ao Nonay o melhor sistema de resolução criado para o seu problema.",
-      "problem": "aaa",
-      "solution": "aaa",
-      "category": "translate",
+      "title": "Teste",
+      "description": "Teste",
+      "problem": "",
+      "solution": "",
+      "category": [
+        "#javascript",
+        "#java",
+        "#sintaxe"
+      ],
       "authorId": "1",
       "locale": "",
-      "createdAt": "09/09/2026",
-      "id": "CyUr54qbueA"
+      "createdAt": "22/09/2026",
+      "id": "goNvkTn8quk"
     },
     {
-      "title": "'useLearningStre' is declared but its value is never read.",
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-      "problem": "<q-table\n      :rows=\"learningStore.myLearnings\"\n      :columns=\"columns\"\n      row-key=\"id\"\n      :loading=\"learningStore.loading\"\n      grid\n      hide-header\n    >\n      <template #item=\"props\">\n        <q-card\n          class=\"w-full mb-4 p-4 cursor-pointer border shadow-none\"\n          @click=\"goToDetail(props.row.id)\"\n        >\n          <div class=\"flex flex-nowrap justify-between items-start\">\n            <div\n              style=\"max-width: 990px\"\n              class=\"text-blue-500 dark:text-blue-500 font-bold text-xl break-all\"\n            >\n              {{ props.row.title }}\n            </div>\n            <q-separator />\n            <div @click.stop>\n              <q-btn\n                flat\n                round\n                dense\n                icon=\"edit\"\n                class=\"text-dark-500\"\n                @click=\"openEdit(props.row)\"\n              />\n              <q-btn\n                flat\n                round\n                dense\n                icon=\"delete\"\n                class=\"text-red-500 dark:text-white\"\n                @click=\"askDelete(props.row.id)\"\n              />\n            </div>\n          </div>\n          <p class=\"text-body2\">{{ props.row.description }}</p>\n          <div class=\"flex justify-between text-caption text-slate-500 mt-10\">\n            <span class=\"text-teal-900 dark:text-blue-500\"\n              >{{ $t('solutions.category') }}\n              <span class=\"text-gray-400 dark:text-white\"> {{ props.row.category }} </span></span\n            >\n            <div class=\"justify-end text-orange-500 dark:text-blue-500\">\n              <span class=\"mr-10\"\n                >{{ $t('solutions.createdAt') }}\n                <span class=\"text-gray-900 dark:text-white\">{{ props.row.createdAt }}</span></span\n              >\n              <span\n                >{{ $t('solutions.author') }}\n                <span class=\"text-gray-900 dark:text-white\">{{\n                  getAuthorName(props.row.authorId)\n                }}</span></span\n              >\n            </div>\n          </div>\n        </q-card>\n      </template>\n    </q-table>\n",
-      "solution": "<q-table\n      :rows=\"learningStore.myLearnings\"\n      :columns=\"columns\"\n      row-key=\"id\"\n      :loading=\"learningStore.loading\"\n      grid\n      hide-header\n    >\n      <template #item=\"props\">\n        <q-card\n          class=\"w-full mb-4 p-4 cursor-pointer border shadow-none\"\n          @click=\"goToDetail(props.row.id)\"\n        >\n          <div class=\"flex flex-nowrap justify-between items-start\">\n            <div\n              style=\"max-width: 990px\"\n              class=\"text-blue-500 dark:text-blue-500 font-bold text-xl break-all\"\n            >\n              {{ props.row.title }}\n            </div>\n            <q-separator />\n            <div @click.stop>\n              <q-btn\n                flat\n                round\n                dense\n                icon=\"edit\"\n                class=\"text-dark-500\"\n                @click=\"openEdit(props.row)\"\n              />\n              <q-btn\n                flat\n                round\n                dense\n                icon=\"delete\"\n                class=\"text-red-500 dark:text-white\"\n                @click=\"askDelete(props.row.id)\"\n              />\n            </div>\n          </div>\n          <p class=\"text-body2\">{{ props.row.description }}</p>\n          <div class=\"flex justify-between text-caption text-slate-500 mt-10\">\n            <span class=\"text-teal-900 dark:text-blue-500\"\n              >{{ $t('solutions.category') }}\n              <span class=\"text-gray-400 dark:text-white\"> {{ props.row.category }} </span></span\n            >\n            <div class=\"justify-end text-orange-500 dark:text-blue-500\">\n              <span class=\"mr-10\"\n                >{{ $t('solutions.createdAt') }}\n                <span class=\"text-gray-900 dark:text-white\">{{ props.row.createdAt }}</span></span\n              >\n              <span\n                >{{ $t('solutions.author') }}\n                <span class=\"text-gray-900 dark:text-white\">{{\n                  getAuthorName(props.row.authorId)\n                }}</span></span\n              >\n            </div>\n          </div>\n        </q-card>\n      </template>\n    </q-table>\n",
-      "category": "test",
+      "title": "teste 2",
+      "description": "teste 2",
+      "problem": "",
+      "solution": "",
+      "category": [
+        "#vue",
+        "#react",
+        "#typescript"
+      ],
       "authorId": "1",
       "locale": "",
-      "createdAt": "10/09/2026",
-      "id": "mb4enLy9Nnc"
+      "createdAt": "22/09/2026",
+      "id": "GB43hmosfYU"
     },
     {
-      "title": "Testando Dashboard",
-      "description": "Análise profunda do dashboard para melhoria visual.",
-      "problem": "a",
-      "solution": "a",
-      "category": "frontend",
+      "title": "teste",
+      "description": "testing",
+      "problem": "",
+      "solution": "",
+      "category": [
+        "#new",
+        "#magnific",
+        "#incrible"
+      ],
       "authorId": "2",
       "locale": "",
-      "createdAt": "11/09/2026",
-      "id": "9FPuheiG4qc"
+      "createdAt": "22/09/2026",
+      "id": "lBcxrzkQP6I"
     },
     {
-      "title": "titulo",
-      "description": "Hello World",
-      "problem": "a",
-      "solution": "a",
-      "category": "teste",
+      "title": "Indicates the desired height of glyphs from the font. For scalable fonts, the font-size is a scale factor applied to the EM unit of the font. (Note that certain glyphs may bleed outside their EM box.) For non-scalable fonts, the font-size is converted into absolute units and matched against the declared font-size of the font, using the same absolute coordinate space for both of the matched values.\n\n Widely available across major browsers (Baseline since 2015)\n\nSyntax: <absolute-size> | <relative-size> | <length-percentage [0,∞]> | math\n\nMDN Reference",
+      "description": "testing 2",
+      "problem": "",
+      "solution": "",
+      "category": [
+        "#test",
+        "#solution",
+        "#hashtags"
+      ],
       "authorId": "2",
-      "locale": "en-US",
-      "createdAt": "14/09/2026",
-      "id": "KfVc55PWAC4"
+      "locale": "",
+      "createdAt": "22/09/2026",
+      "id": "TbEVfS3Tvdk"
     }
   ],
   "comments": [
     {
       "id": "b3itEPUkS5Y",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "text": "teste",
       "authorId": "1",
       "createdAt": "11:11:17"
     },
     {
       "id": "jAH34xDqyfs",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "text": "a",
       "authorId": "1",
       "createdAt": "11:11:42"
     },
     {
       "id": "dAkRHUt_oP8",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "text": "aa",
       "authorId": "1",
       "createdAt": "11:11:56"
     },
     {
       "id": "1G81vKTkHj8",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "text": "b",
       "authorId": "1",
       "createdAt": "Fri Sep 18 2026"
     },
     {
       "id": "oI5epAOT5E4",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "text": "d",
       "authorId": "1",
       "createdAt": "18/09/2026"
     },
     {
       "id": "_Tj2A9BVN3I",
-      "learningId": "mb4enLy9Nnc",
+      "learningId": null,
       "text": "a",
       "authorId": "1",
       "createdAt": "21/09/2026"
+    },
+    {
+      "id": "PKkf84F8Kqc",
+      "learningId": "TbEVfS3Tvdk",
+      "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "authorId": "2",
+      "createdAt": "22/09/2026"
     }
   ],
   "translations": [
     {
       "id": "1",
-      "learningId": "IcZDpyTeb90",
+      "learningId": null,
       "locale": "en-US",
       "text": "Good day. I'm user ",
       "authorId": "2"
     },
     {
       "id": "bn-N_NopTXg",
-      "learningId": "IcZDpyTeb90",
+      "learningId": null,
       "locale": "es-ES",
       "text": "Buenos días, mi nombre es usuario.",
       "authorId": "1"
     },
     {
       "id": "qBg7g9VVRV4",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "locale": "en-US",
       "text": "Hello! Welcome to Nonay, the best solution system created for your problem.",
       "authorId": "1"
     },
     {
       "id": "0ITD0-XJ010",
-      "learningId": "CyUr54qbueA",
+      "learningId": null,
       "locale": "es-ES",
       "text": "¡Hola! Bienvenidos a Nonay, el mejor sistema de resolución creado para su problema.",
       "authorId": "1"
     },
     {
       "id": "cGBVuRFINcc",
-      "learningId": "IcZDpyTeb90",
+      "learningId": null,
       "locale": "en-US",
       "text": "Good Day! I am user",
       "authorId": "1"
     },
     {
       "id": "dktFpH-3PEk",
-      "learningId": "mb4enLy9Nnc",
+      "learningId": null,
       "locale": "es-ES",
       "text": "Lorem Ipsum es simplemente un texto de relleno de la industria de la impresión y la composición tipográfica. Lorem Ipsum ha sido el texto de relleno estándar de la industria desde 1966, cuando diseñadores de Letraset y James Mosley —bibliotecario de la St Bride Printing Library de Londres— tomaron una traducción de Cicerón de 1914 y alteraron el orden de sus palabras para crear un texto de prueba destinado a las hojas de tipografía de cuerpo de texto de Letraset. Ha sobrevivido no solo a muchas décadas, sino también a la transición hacia la composición electrónica, manteniéndose prácticamente inalterado. Su popularidad se debe a dichas hojas y, más recientemente, a la inclusión de versiones de Lorem Ipsum en programas de autoedición y procesamiento de textos, como Aldus PageMaker y Microsoft Word.",
       "authorId": "1"
     },
     {
       "id": "nys39qN974Y",
-      "learningId": "mb4enLy9Nnc",
+      "learningId": null,
       "locale": "pt-BR",
       "text": "O Lorem Ipsum é simplesmente um texto fictício da indústria de impressão e composição gráfica. Ele tem sido o texto padrão do setor desde 1966, quando designers da Letraset e James Mosley — bibliotecário da St Bride Printing Library, em Londres — pegaram uma tradução de Cícero de 1914 e embaralharam o texto para criar um modelo destinado às folhas de tipos para corpo de texto da Letraset. O texto sobreviveu não apenas a muitas décadas, mas também à transição para a composição eletrônica, permanecendo praticamente inalterado. Sua popularização ocorreu graças a essas folhas e, mais recentemente, à inclusão de versões do Lorem Ipsum em softwares de editoração eletrônica, como o Aldus PageMaker e o Microsoft Word.",
       "authorId": "2"
     },
     {
       "id": "aojJt5ahh6Q",
-      "learningId": "KfVc55PWAC4",
+      "learningId": null,
       "locale": "pt-BR",
       "text": "Olá mundo",
       "authorId": "2"
     },
     {
       "id": "uU8QFtBlets",
-      "learningId": "KfVc55PWAC4",
+      "learningId": null,
       "locale": "es-ES",
       "text": "Hola mundo",
       "authorId": "2"

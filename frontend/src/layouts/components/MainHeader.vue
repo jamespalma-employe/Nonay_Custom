@@ -1,9 +1,11 @@
 <template>
-  <q-header flat class="bg-cyan-900 dark:bg-cyan-800 py-1" >
+  <q-header flat class="bg-cyan-900 dark:bg-cyan-800 py-1">
     <q-toolbar class="max-w-full">
-
-  
-      <section class="flex flex-grow justify-center">
+      <div v-if="$q.screen.lt.md">
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="emit('toggle-drawer')" />
+      </div>
+    
+      <section class="flex flex-auto justify-center">
         <q-input
           v-model="searchProb"
           dense
@@ -22,49 +24,57 @@
         <q-avatar class="text-white" aria-label="account" icon="account_circle" />
         <span class="ml-2">{{ user?.name }}</span>
 
-        <q-menu class="flex flex-nowrap justify-center max-w-2xl px-4 py-3">
-          <q-list>
-            <q-btn
-              flat
-              round
-              aria-label="theme"
-              :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
-              @click="toggleDarkMode"
-            />
-            <q-btn-dropdown flat :label="locale.toUpperCase()">
-              <q-list>
-                <q-item clickable v-close-popup @click="locale = 'en-US'">
-                  <q-img
-                    alt="bandeira-usa"
-                    src="@/assets/languages/bandeira-usa.svg"
-                    style="max-width: 20px; min-width: none"
-                    class="m-3"
-                  />
-                  <q-item-section>English</q-item-section></q-item
-                >
-                <q-item clickable v-close-popup @click="locale = 'pt-BR'">
-                  <q-img
-                    alt="bandeira-brasil"
-                    src="@/assets/languages/bandeira-pt-br.svg"
-                    style="max-width: 20px; min-width: none"
-                    class="m-3"
-                  />
-                  <q-item-section>Português (Brasil)</q-item-section></q-item
-                >
-                <q-item clickable v-close-popup @click="locale = 'es-ES'"
-                  ><q-img
-                    alt="bandeira-espanha"
-                    src="@/assets/languages/bandeira-es.svg"
-                    style="max-width: 20px; min-width: none"
-                    class="m-3"
-                  />
-                  <q-item-section>Español</q-item-section></q-item
-                >
-              </q-list>
-            </q-btn-dropdown>
-            <q-item clickable v-close-popup @click="handleLogout">
-              <q-item-section class="text-red-600">Sign Out</q-item-section>
+        <q-menu class="flex flex-nowrap justify-between max-w-2xl px-2 py-3">
+          <q-list class="flex flex-col">
+            <q-item>
+              <q-btn
+                flat
+                round
+                aria-label="theme"
+                :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+                @click="toggleDarkMode"
+              />
+              <q-btn-dropdown flat :label="locale.toUpperCase()">
+                <q-list>
+                  <q-item clickable v-close-popup @click="locale = 'en-US'">
+                    <q-img
+                      alt="bandeira-usa"
+                      src="@/assets/languages/bandeira-usa.svg"
+                      style="max-width: 20px; min-width: none"
+                      class="m-3"
+                    />
+                    <q-item-section>English</q-item-section></q-item
+                  >
+                  <q-item clickable v-close-popup @click="locale = 'pt-BR'">
+                    <q-img
+                      alt="bandeira-brasil"
+                      src="@/assets/languages/bandeira-pt-br.svg"
+                      style="max-width: 20px; min-width: none"
+                      class="m-3"
+                    />
+                    <q-item-section>Português (Brasil)</q-item-section></q-item
+                  >
+                  <q-item clickable v-close-popup @click="locale = 'es-ES'"
+                    ><q-img
+                      alt="bandeira-espanha"
+                      src="@/assets/languages/bandeira-es.svg"
+                      style="max-width: 20px; min-width: none"
+                      class="m-3"
+                    />
+                    <q-item-section>Español</q-item-section></q-item
+                  >
+                </q-list>
+              </q-btn-dropdown>
             </q-item>
+
+            <q-btn
+              no-caps
+              dense
+              class="bg-red-500 text-white rounded-md font-bold px-2"
+              @click="handleLogout"
+            >
+              Sign out
+            </q-btn>
           </q-list>
         </q-menu>
       </q-btn>
@@ -85,6 +95,7 @@ const searchProb = ref('');
 const $q = useQuasar();
 const { locale } = useI18n();
 
+const emit = defineEmits<{ (e: 'toggle-drawer'): void }>();
 
 function toggleDarkMode() {
   $q.dark.toggle();
