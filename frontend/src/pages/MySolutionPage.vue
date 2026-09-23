@@ -7,7 +7,7 @@
         noCaps
         :label="$t('solutions.post')"
         @click="openCreate"
-        class="rounded-lg btn shadow-nones p-2"
+        class="rounded-lg btn shadow-none p-2"
       />
     </div>
 
@@ -20,12 +20,13 @@
       hide-header
     >
       <template #item="props">
-        <q-card
-        flat
-          class="w-full card mb-4 p-4 border-y-2 shadow-none"
-        >
+        <q-card flat class="w-full card mb-4 p-4 border-y-2 shadow-none">
           <section class="flex flex-nowrap justify-between items-start">
-            <router-link :to="`/learning/${props.row.id}`" style="max-width: 990px" class="post-title-link">
+            <router-link
+              :to="`/learning/${props.row.id}`"
+              style="max-width: 990px"
+              class="post-title-link"
+            >
               {{ props.row.title }}
             </router-link>
             <q-separator />
@@ -50,17 +51,16 @@
           </section>
           <p>{{ props.row.description }}</p>
           <article class="flex justify-between text-caption mt-10">
-            
-            <article class="flex flex-wrap gap-1 mt-2">
+            <article class="opacity-75 flex flex-wrap gap-1 mt-2">
               <q-chip v-for="category in props.row.category" :key="category" dense class="tag">
-                {{  category }}
+                {{ category }}
               </q-chip>
             </article>
-            
-            <article class="flex flex-nowrap justify-end">
-              <span class="mr-6">{{
-                getAuthorName(props.row.authorId)
-              }}</span>
+
+            <article
+              class="opacity-35 text-slate-950 dark:text-slate-300 flex flex-nowrap justify-end"
+            >
+              <span class="mr-6">{{ getAuthorName(props.row.authorId) }}</span>
               <span>{{ props.row.createdAt }}</span>
             </article>
           </article>
@@ -76,61 +76,78 @@
             {{ isEditing ? $t('solutions.editSolution') : $t('solutions.createSolution') }}
           </div>
         </q-card-section>
-        <q-card-section class="p-6">
-          <q-form class="q-gutter-md" @submit="handleSubmit">
-            <h2 class="text-lg">Title</h2>
-            <q-input
-              v-model="form.title"
-              outlined
-              autogrow
-              dense
-              :rules="[(val) => !!val || $t('post.TitleRequired')]"
-              :label="$t('solutions.createSolution')"
-              type="textarea"
-            />
-            <h2 class="text-lg">Description</h2>
-            <q-input
-              v-model="form.description"
-              outlined
-              autogrow
-              dense
-              :rules="[(val) => !!val || $t('post.DescriptionRequired')]"
-              :label="$t('solutions.descriptionYourProblem')"
-              type="textarea"
-            />
-            <q-separator />
-            <textarea
-              v-model="form.problem"
-              rows="8"
-              :placeholder="$t('solutions.pasteYourCodeIncorrect')"
-              class="w-full bg-gray-900 text-white font-mono text-sm p-4 rounded outline-none"
-            ></textarea>
-            <textarea
-              v-model="form.solution"
-              rows="8"
-              :placeholder="$t('solutions.pasteYourCodeCorrect')"
-              class="w-full bg-gray-900 text-white font-mono text-sm p-4 rounded outline-none"
-            ></textarea>
-          
-            <h2 class="text-lg">Categorys</h2>
-
-            <q-input v-model="newCategory" :label="$t('solutions.addCategory')" dense outlined @keydown.enter.prevent="addTag" />
-
-            <q-chip v-for="(category, index) in form.category" :key="category" removable color="primary" text-color="white" @remove="form.category.splice(index, 1)" >
-              {{ category }}
-            </q-chip>
-
-            <section class="flex gap-2">
-              <q-btn flat :label="$t('solutions.cancel')" class="col" @click="handleCancel" />
-              <q-btn
-                type="submit"
-                :label="$t('solutions.save')"
-                class="col bg-orange-500 hover:bg-orange-700 text-white"
-                size="lg"
+        <q-form @submit="handleSubmit">
+          <q-card-section class="max-h-[50vh] scroll p-6">
+            <fieldset class="q-gutter-md">
+              <h2 class="text-lg">Title</h2>
+              <q-input
+                v-model="form.title"
+                outlined
+                autogrow
+                dense
+                :rules="[(val) => !!val || $t('post.TitleRequired')]"
+                :label="$t('solutions.createSolution')"
+                type="textarea"
               />
-            </section>
-          </q-form>
-        </q-card-section>
+              <h2 class="text-lg">Description</h2>
+              <q-input
+                v-model="form.description"
+                outlined
+                autogrow
+                dense
+                :rules="[(val) => !!val || $t('post.DescriptionRequired')]"
+                :label="$t('solutions.descriptionYourProblem')"
+                type="textarea"
+              />
+              <q-separator />
+              <textarea
+                v-model="form.problem"
+                rows="8"
+                :placeholder="$t('solutions.pasteYourCodeIncorrect')"
+                class="w-full bg-gray-900 text-white font-mono text-sm p-4 rounded outline-none"
+              ></textarea>
+              <textarea
+                v-model="form.solution"
+                rows="8"
+                :placeholder="$t('solutions.pasteYourCodeCorrect')"
+                class="w-full bg-gray-900 text-white font-mono text-sm p-4 rounded outline-none"
+              ></textarea>
+
+              <h2 class="text-lg">Categorys</h2>
+
+              <q-input
+                v-model="newCategory"
+                :label="$t('solutions.addCategory')"
+                dense
+                outlined
+                @keydown.enter.prevent="addTag"
+              />
+
+              <q-chip
+                v-for="(category, index) in form.category"
+                :key="category"
+                removable
+                color="primary"
+                text-color="white"
+                @remove="form.category.splice(index, 1)"
+              >
+                {{ category }}
+              </q-chip>
+            </fieldset>
+          </q-card-section>
+
+          <q-separator />
+
+          <q-card-actions class="flex justify-end gap-2">
+            <q-btn flat no-caps :label="$t('solutions.cancel')" @click="handleCancel" />
+            <q-btn
+              type="submit"
+              :label="$t('solutions.save')"
+              class="px-8 w-32 bg-orange-500 hover:bg-orange-700 text-white"
+              no-caps
+            />
+          </q-card-actions>
+        </q-form>
       </q-card>
     </q-dialog>
 
@@ -174,7 +191,6 @@ const deletingId = ref<string | null>(null);
 
 const editingId = ref<string | null>();
 const { locale } = useI18n();
-
 
 const form = reactive<LearningCreate>({
   title: '',
@@ -229,15 +245,15 @@ function openEdit(learning: Learning) {
 
 function addTag() {
   const value = newCategory.value.trim();
-  if(!value) return
+  if (!value) return;
 
-  const category = value.startsWith('#') ? value : `#${value}`
+  const category = value.startsWith('#') ? value : `#${value}`;
 
-  if(!form.category.includes(category)) {
-    form.category.push(category)
+  if (!form.category.includes(category)) {
+    form.category.push(category);
   }
 
-  newCategory.value = ''
+  newCategory.value = '';
 }
 
 function handleCancel() {

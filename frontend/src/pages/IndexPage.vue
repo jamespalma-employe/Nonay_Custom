@@ -6,7 +6,7 @@
       <q-card
         v-for="stat in stats"
         :key="stat.label"
-        class="p-5 card-dashboard text-center shadow-md"
+        class="p-5  text-center shadow-md"
       >
         <q-icon :name="stat.icon" :color="stat.color" size="40px" class="mb-2" />
         <p class="text-caption text-slate-700 dark:text-white">{{ $t(stat.label) }}</p>
@@ -65,7 +65,7 @@ const stats = computed(() => [
     label: 'home.solutions',
     icon: 'emoji_objects',
     color: 'warning',
-    value: learningStore.learnings.filter((l) => l.solution).length,
+    value: learningStore.learnings.length,
   },
 ]);
 

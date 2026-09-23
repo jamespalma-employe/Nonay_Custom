@@ -5,7 +5,7 @@
     
 
     <q-drawer
-      style="scrollbar-width: none"
+      style="scrollbar-width: none;"
       v-model="leftDrawerOpen"
       :mini="miniState"
       bordered

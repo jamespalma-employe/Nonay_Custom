@@ -15,6 +15,7 @@ export default {
     authors: 'Autores',
     solutions: 'Soluciones',
     latestLearnings: 'Últimos aprendizajes',
+    search: 'Buscar',
   },
   solutions: {
     resolvedQuestions: 'Preguntas resueltas',

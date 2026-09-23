@@ -1,5 +1,5 @@
 <template>
-  <main class="mx-auto max-w-7xl py-20 px-20">
+  <main class="mx-auto max-w-7xl py-7 px-6">
     <div class="max-w-2xl mx-auto">
       <q-card class="shadow-2">
         <q-card-section class="bg-cyan-900 text-white">
@@ -31,7 +31,7 @@
             <q-btn
               :label="isEditing ? 'Save changes' : $t('translate.submitTranslation')"
               color="primary"
-              class="col"
+              class="col btn"
               :loading="isSubmitting"
               :disable="isSubmitting"
               @click="submitTranslation"

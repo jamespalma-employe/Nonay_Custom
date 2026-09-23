@@ -28,13 +28,13 @@
             <p class="text-body2">{{ props.row.description }}</p>
             <div class="flex justify-between text-caption text-slate-500 mt-10">
               
-              <div class="flex flex-wrap gap-1 mt-2">
+              <div class="opacity-75 flex flex-wrap gap-1 mt-2">
                 <q-chip v-for="category in props.row.category" :key="category" dense  class="tag break-words">
                   {{ category }}
                 </q-chip>
               </div>
 
-              <div class="justify-end text-slate-950 dark:text-slate-300">
+              <div class="opacity-35 justify-end text-slate-950 dark:text-slate-300">
                 <span class="mr-6">{{ getAuthorName(props.row.authorId) }}</span>
                 <span>{{ props.row.createdAt }}</span>
               </div>

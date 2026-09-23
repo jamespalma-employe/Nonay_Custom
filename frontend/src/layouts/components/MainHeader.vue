@@ -1,17 +1,17 @@
 <template>
   <q-header flat class="bg-cyan-900 dark:bg-cyan-800 py-1">
-    <q-toolbar class="max-w-full">
+    <q-toolbar class="px-2 sm:px-4">
       <div v-if="$q.screen.lt.md">
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="emit('toggle-drawer')" />
       </div>
-    
-      <section class="flex flex-auto justify-center">
+
+      <section class="hidden sm:!flex justify-center" >
         <q-input
           v-model="searchProb"
           dense
           outlined
-          class="min-w-96 rounded-md max-w-3xl card dark:border-none"
-          placeholder="Search..."
+          class="w-full rounded-md max-w-md card dark:border-nones"
+          :placeholder="$t('home.search')"
           @keyup.enter="handleSearch"
         >
           <template #prepend>
@@ -20,7 +20,10 @@
         </q-input>
       </section>
 
-      <q-btn rounded flat noCaps class="pl-1 pr-3 py-0.5">
+      <q-btn v-if="!$q.screen.gt.xs" flat round icon="search" @click="mobileSearchOpen = true" />
+
+      <div class="flex flex-grow justify-end ">
+        <q-btn rounded flat noCaps  class="pl-1 pr-3 py-0.5">
         <q-avatar class="text-white" aria-label="account" icon="account_circle" />
         <span class="ml-2">{{ user?.name }}</span>
 
@@ -78,7 +81,22 @@
           </q-list>
         </q-menu>
       </q-btn>
+      </div>
     </q-toolbar>
+    <q-dialog v-model="mobileSearchOpen" position="top">
+      <q-card class="w-full p-2">
+        <q-input
+          v-model="searchProb"
+          autofocus
+          dense
+          outlined
+          :placeholder="$t('home.search')"
+          @keyup.enter="handleSearch"
+        >
+          <template #prepend><q-icon name="search" /></template>
+        </q-input>
+      </q-card>
+    </q-dialog>
   </q-header>
 </template>
 
@@ -92,6 +110,7 @@ import { useRouter } from 'vue-router';
 const user = getUser();
 const router = useRouter();
 const searchProb = ref('');
+const mobileSearchOpen = ref(false);
 const $q = useQuasar();
 const { locale } = useI18n();
 
